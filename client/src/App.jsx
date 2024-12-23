@@ -1,14 +1,16 @@
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { path } from "./ultils/constan";
+import { Home, Login } from "./containers/public";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias illo
-        unde excepturi quis, hic officiis debitis sed voluptate quo enim ducimus
-        qui doloribus in sequi! Quisquam quod dolore quae adipisci.
-      </h1>
-    </>
+    <div className="w-screen h-screen bg-primary">
+      <Routes>
+        <Route path={path.HOME} element={<Home />}>
+          <Route path={path.LOGIN} element={<Login />}></Route>
+        </Route>
+      </Routes>
+    </div>
   );
 }
 
