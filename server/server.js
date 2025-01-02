@@ -2,6 +2,7 @@ import express from "express";
 require("dotenv").config();
 import cors from "cors";
 import initRoutes from "./src/routes";
+import connectDatabase from "./src/config/connectDatabase";
 
 const app = express();
 app.use(
@@ -12,6 +13,7 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+connectDatabase();
 initRoutes(app);
 app.use("/", (req, res) => {
   res.send("server on...");
